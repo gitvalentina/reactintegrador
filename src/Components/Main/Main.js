@@ -20,7 +20,7 @@ class Tarjetas extends Component{
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=184353d8f8f15b5e8908b2560e49a9f3&language=en-US&page=${this.state.pagina}`)
             .then( response => response.json())
             .then( data  => {
-                this.setState({
+                this.setState({ //Configuramos el estado del componente para que pueda almacenar la información de la API luego de hacer el fetch.
                 cargando: true,
                 peliculas: data.results,
                 peliculasOriginales: data.results,
@@ -29,7 +29,23 @@ class Tarjetas extends Component{
             })})
             .catch( error => console.log(error));
     }
+    render(){ //donde vamos a imprimir la información obtenida de la API.
+        console.log(this.state.display);
+         return(
+             <>
+                <Header/>
+                <Tarjeta /> 
+                    {
+                         this.state.cargando === false ? "":
+                 <div className="botones">
+                     <button className="boton" onClick={()=>this.verMasPeliculas()} >Mas peliculas</button>
+                     <button className="boton" onClick={() => this.addFav()}>Agregar a Favoritos</button>
+                     <button className="boton" onClick={() => this.deleteFav()}> Sacar de Favoritos </button>
+                 </div>}
+             </>
+        )
+    }
 }
 
 
-export default Tarjetas
+export default Tarjetas;

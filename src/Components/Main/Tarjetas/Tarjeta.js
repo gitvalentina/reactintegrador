@@ -1,7 +1,7 @@
 import React, {Component}  from "react"
 import "./Tarjeta.css"
 
-class Tarjetas extends Component{
+class Tarjeta extends Component{
     constructor(props){
         super(props)
         this.state={
