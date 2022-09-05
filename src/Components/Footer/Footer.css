@@ -1,0 +1,13 @@
+.udesa{
+    width: 100px; height: 100px;
+    text-align: center;
+
+}
+
+.piedep {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: rgb(0, 166, 255);
+    text-align: center;
+    text-decoration-color: beige;
+} 
