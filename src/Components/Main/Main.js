@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Tarjeta from './Tarjetas/Tarjeta';
+import Tarjeta from '../Tarjetas/Tarjeta';
 import Header from '../Header/Header';
 import './Main.css'
 
