@@ -6,7 +6,7 @@ import Home from "./screens/Home/Home";
 import Favoritos from "./screens/Favoritos/Fav";
 import UnaPelicula from "./screens/UnaPelicula/unaPelicula";
 import Peliculas from "./screens/Peliculas/Peliculas";
-import NotFound from "./screens/NotFound/notFound";
+import NotFound from "./screens/NotFound/NotFound";
 
 import {Route, Switch} from 'react-router-dom';
 
