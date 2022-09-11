@@ -12,6 +12,9 @@ function Header(){
                 <li>
                     <Link to='/peliculas'>All Movies</Link>
                 </li>
+                <li>
+                   <Link to='/favoritos'>Favorites</Link>
+                </li>
                 
             </ul>
             <ul className="user">
