@@ -5,13 +5,14 @@ class Buscador extends Component{ //capturar valores
     constructor(props){
         super(props)
         this.state={
-            valorInput:''
+            valorInput:'',
+            resultados: []
         }
     }
 
 
 prevenirRefresh(event){
-    event.preventDefault()
+    event.prevenirRefresh()
 }
 
 controlarCambiosDelInput(event){

@@ -19,4 +19,18 @@ img{
 h2{
     font-size: 20px;
     color: white;
+    height: 20%;
+}
+h3{
+    color: white;
+    font-size: 15px;
+}
+button{
+    margin-top: 2%;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
 }
