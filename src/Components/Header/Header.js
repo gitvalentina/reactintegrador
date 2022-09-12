@@ -5,6 +5,7 @@ function Header(){
 
     return (
         <nav>
+            <img src="img/logo.jpg" alt="logo" className='logo' />
             <ul className="main-nav">
                 <li>
                    <Link to='/'>Home</Link>
@@ -15,10 +16,13 @@ function Header(){
                 <li>
                    <Link to='/favoritos'>Favorites</Link>
                 </li>
-                
             </ul>
+
             <ul className="user">
-                <li>Nombre usuario <img src="/img/user.jpg" alt=""/></li>
+                <li>
+                    <p>Bienvenido usuario</p>
+                    <img src="/img/user.jpg" alt=""/>
+                </li>
             </ul>
         </nav>
     )
