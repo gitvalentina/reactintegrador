@@ -12,11 +12,12 @@ class Tarjeta extends Component {
     render() {
         return (
         <React.Fragment> 
-            <article>
+            <article >
                 <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt=""/>
                 <h2>{this.props.title}</h2>  
                 <p className='more' >Ver más</p> 
             </article> 
+     
         </React.Fragment>
         );
     }

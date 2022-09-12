@@ -20,16 +20,6 @@ class Home extends Component {
         })
     }
 
-    evitarSubmit(event) {
-        event.preventDefault();
-        this.buscar()
-              
-    }
-
-    controlarCambios(event) {
-        this.setState({ valor: event.target.value })
-    }
-
     buscar(texto){
         //buscador desde el endpoint
         fetch('https://api.themoviedb.org/3/search/multi?api_key=' + apiKey + '&query=' + this.state.texto)
@@ -43,33 +33,20 @@ class Home extends Component {
 
 
     render() {
-
         return (
             <React.Fragment>
                 <Buscador> </Buscador>
                 <main>
-                    <form onSubmit={(event) => this.evitarSubmit(event)}>
-                        <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
-                        <input type="submit" value="Submit" />
-                    </form>
-                    <button onClick={()=>this.reset()}>reset</button>
-                    {
-                        this.state.resultadosDeBusqueda.length > 0 ?  
-                        
-                            <section className="opciones">
+                    {this.state.resultadosDeBusqueda.length > 0 ?  
+                        <section className="opciones">
                             <div>
                                 {
                                     this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjetas key={UnaPelicula.id + idx} datosPelicula={UnaPelicula} />)
                                 }
                             </div>
-                            </section>
-                         : 
-                        <React.Fragment>
-                            <Movies />
-                        </React.Fragment>
+                        </section> : <Movies/>
                     }
                 </main>
-                  <Movies />
             </React.Fragment>
         )
     }

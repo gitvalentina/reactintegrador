@@ -1,8 +1,16 @@
 article{
     padding: 0% 1%;
     width: 15%;
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: black;
+    color: white;
 }
 img{
+    display: block;
+    width: 100%;
+    height: 200px;
     
 }
