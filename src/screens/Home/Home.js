@@ -46,7 +46,34 @@ class Home extends Component {
 
         return (
             <React.Fragment>
+<<<<<<< HEAD
+                <main>
+                    <form onSubmit={(event) => this.evitarSubmit(event)}>
+                        <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
+                        <input type="submit" value="Submit" />
+                    </form>
+                    <button onClick={()=>this.reset()}>reset</button>
+                    
+
+                    {
+                        this.state.resultadosDeBusqueda.length > 0 ?  
+                        
+                            <section className="opciones">
+                            <div>
+                                {
+                                    this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjetas key={UnaPelicula.id + idx} datosPelicula={UnaPelicula} />)
+                                }
+                            </div>
+                            </section>
+                         : 
+                        <React.Fragment>
+                            <Movies />
+                        </React.Fragment>
+                    }
+                </main>
+=======
                   <Movies />
+>>>>>>> 0abd608d0ca8ba8d7ab56530a0eb80949029a48d
             </React.Fragment>
         )
     }
