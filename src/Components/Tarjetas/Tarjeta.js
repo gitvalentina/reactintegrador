@@ -15,7 +15,7 @@ class Tarjeta extends Component {
             <article >
                 <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt=""/>
                 <h2>{this.props.title}</h2>  
-                <p className='more' >Ver más</p> 
+                <button className='more'> Ver más </button>   
             </article> 
      
         </React.Fragment>
