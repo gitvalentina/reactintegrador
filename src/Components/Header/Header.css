@@ -1,7 +1,9 @@
-header .logo {
+.logo {
     border-radius: 50%;
     width: 10%;
     border: 3px solid black;
+    padding-top: 5px;
+    
 }
 /*HEADER*/
 
@@ -26,6 +28,9 @@ a {
     color: white;
     align-items: center;
     margin: 1%;
+}
+.lg{
+    width: 30%;
 }
 
 

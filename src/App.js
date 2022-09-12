@@ -15,7 +15,7 @@ function App () {
       <React.Fragment>
         <Header />
         <div>
-          <h1>My App in React</h1>
+          <h1>STREAMTIME</h1>
           <main>       
             <Switch>
               <Route path='/' exact={true} component={Home}/>

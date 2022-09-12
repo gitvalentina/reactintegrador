@@ -6,11 +6,9 @@ function Header(){
 
     return (
     <>
-            <div className='Header'>
+            <div className='header'>
                 <ul className="navegador">
-                    <li className="comp-nav" id="alinear-foto">
-                            <img src="logo/logo.jpeg" alt="Logo StreamTime" className="logo" id="logo" />
-                    </li>
+                    <li className='lg'><img src="img/logo.jpg" alt="Logo StreamTime" className="logo" /></li>
                     <li className="comp-nav">
                         <Link to='/'> Home </Link>
                     </li>
