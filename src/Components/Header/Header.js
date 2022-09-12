@@ -17,7 +17,7 @@ function Header(){
                    <Link to='/favoritos'>Favorites</Link>
                 </li>
             </ul>
-
+           
             <ul className="user">
                 <li>
                     <p>Bienvenido usuario</p>

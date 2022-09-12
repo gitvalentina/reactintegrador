@@ -1,7 +1,7 @@
 import React from 'react';
 import Movies from '../../Components/Movies/Movies';
 
-function Peliculas(){
+function VerTodas(){
 
     return(
         <React.Fragment>
@@ -11,4 +11,4 @@ function Peliculas(){
     )
 }
 
-export default Peliculas;
+export default VerTodas;

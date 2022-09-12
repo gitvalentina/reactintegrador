@@ -4,11 +4,10 @@ import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import Home from "./screens/Home/Home";
 import Favoritos from "./screens/Favoritos/Fav";
-import UnaPelicula from "./screens/UnaPelicula/unaPelicula";
-import Peliculas from "./screens/Peliculas/Peliculas";
+import UnaPelicula from "./screens/UnaPelicula/UnaPelicula";
 import NotFound from "./screens/NotFound/notFound";
-//import VerTodas from './screens/VerTodas/VerTodas'; falta tmb route: <Route path="/todas" component={VerTodas} />
 import {Route, Switch} from 'react-router-dom';
+import VerTodas from "./screens/VerTodas/VerTodas";
 
 function App () {
     return (
@@ -21,7 +20,7 @@ function App () {
               <Route path='/' exact={true} component={Home}/>
               <Route path='/favoritos' exact component={Favoritos}/>
               <Route path='/peliculas/id/:id' component={UnaPelicula}/>
-              <Route path='/peliculas' component={Peliculas}/>
+              <Route path='/todas' component={VerTodas}/>
               <Route path='' component={NotFound}/>
             </Switch>
           </main>
