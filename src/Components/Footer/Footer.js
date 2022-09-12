@@ -3,6 +3,18 @@ import "./Footer.css"
 
 //por ahora es sin estado, seguro despues hay que cambiarlo
 function Footer() {
+<<<<<<< HEAD
+    return ( <footer className='piedep'> <hr class="uk-divider-icon">
+    </hr>
+
+    <footer className="integrantes">
+        Olivia Fodrini - Delfina Delgui - Valentina Douce  
+    </footer>
+    
+    <footer>
+        WEB &copy; 2022
+    </footer>
+=======
     return ( 
         <footer className='piedepagina'> 
             <div>
@@ -11,6 +23,7 @@ function Footer() {
                 <p>WEB &copy; 2022</p>
 
                 <p>Programacion 3</p>
+>>>>>>> e54ced37927d32662931c875172996116f5bf5d7
 
                 <p  text-align='center'>
                     <img className='udesa' src="https://udesa.edu.ar/sites/all/themes/udesa/images/logo.jpg?v=01" alt="" />
@@ -18,7 +31,6 @@ function Footer() {
             </div>
 
         </footer>
-
 
 );
 }

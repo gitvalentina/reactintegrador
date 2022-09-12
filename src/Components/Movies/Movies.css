@@ -1,0 +1,20 @@
+.titulos {
+    color: white;
+    text-align: center;
+}
+
+.pelis-populares, .series-populares{
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    width: 100%;
+    list-style: none;
+}
+article{
+    padding: 0% 1%;
+    width: 15%;
+}
+
+li {
+    padding: 0 1%;
+}
