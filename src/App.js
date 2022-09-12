@@ -6,13 +6,8 @@ import Home from "./screens/Home/Home";
 import Favoritos from "./screens/Favoritos/Fav";
 import UnaPelicula from "./screens/UnaPelicula/unaPelicula";
 import Peliculas from "./screens/Peliculas/Peliculas";
-<<<<<<< HEAD
 import NotFound from "./screens/NotFound/NotFound";
 
-=======
-import NotFound from "./screens/NotFound/notFound";
-//import VerTodas from './screens/VerTodas/VerTodas'; falta tmb route: <Route path="/todas" component={VerTodas} />
->>>>>>> e54ced37927d32662931c875172996116f5bf5d7
 import {Route, Switch} from 'react-router-dom';
 
 function App () {
