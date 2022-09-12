@@ -72,10 +72,7 @@ class Home extends Component {
                         </React.Fragment>
                     }
                 </main>
-<<<<<<< HEAD
                   <Movies />
-=======
->>>>>>> 269e565199867510d302437139e3ed3f36033a79
             </React.Fragment>
         )
     }
