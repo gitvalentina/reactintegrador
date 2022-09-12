@@ -16,7 +16,7 @@ a {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 0;
-    justify-content: space-around;
+    justify-content: end;
     height: 50px;
     margin: 0;
 }
