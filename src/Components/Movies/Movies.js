@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Tarjeta from '../Tarjetas/Tarjeta';
-import Header from '../Header/Header';
 import './Movies.css'
 import ClipLoader from "react-spinners/ClipLoader";
 
