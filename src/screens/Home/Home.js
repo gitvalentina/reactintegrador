@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Movies from '../../Components/Movies/Movies';
 import Tarjetas from '../../Components/Tarjetas/Tarjeta'
+import Buscador from '../../Components/Buscador/Filtrado.js'
 
 const apiKey= '184353d8f8f15b5e8908b2560e49a9f3';
 
