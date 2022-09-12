@@ -28,6 +28,7 @@ a {
     color: white;
     align-items: center;
     margin: 1%;
+    height: min-content;
 }
 .lg{
     width: 30%;

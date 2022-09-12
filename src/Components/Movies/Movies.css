@@ -7,10 +7,11 @@ body {
     flex-direction: column;
     justify-content: space-around;
     height: 100%;
+    background-color: black;
     
 }
 .titulos {
-    color: rgb(0, 0, 0);
+    color: white;
     text-align: center;
 }
 
