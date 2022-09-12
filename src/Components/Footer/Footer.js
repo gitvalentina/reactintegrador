@@ -3,25 +3,21 @@ import "./Footer.css"
 
 //por ahora es sin estado, seguro despues hay que cambiarlo
 function Footer() {
-    return ( <footer className='piedepagina'> 
+    return ( 
+        <footer className='piedepagina'> 
+            <div>
+                <p>Olivia Fodrini - Delfina Delgui - Valentina Douce</p>
+            
+                <p>WEB &copy; 2022</p>
 
-    <footer>
-        Olivia Fodrini - Delfina Delgui - Valentina Douce  
-    </footer>
-    
-    <footer>
-        WEB &copy; 2022
-    </footer>
+                <p>Programacion 3</p>
 
-    <footer>
-        Programacion 3
-    </footer>
+                <p  text-align='center'>
+                    <img className='udesa' src="https://udesa.edu.ar/sites/all/themes/udesa/images/logo.jpg?v=01" alt="" />
+                </p>
+            </div>
 
-    <p  text-align='center'>
-            <img className='udesa' src="https://udesa.edu.ar/sites/all/themes/udesa/images/logo.jpg?v=01" alt="" />
-    </p>
-
-</footer>
+        </footer>
 
 
 );
