@@ -3,9 +3,10 @@ import "./Footer.css"
 
 //por ahora es sin estado, seguro despues hay que cambiarlo
 function Footer() {
-    return ( <footer className='piedepagina'> 
+    return ( <footer className='piedep'> <hr class="uk-divider-icon">
+    </hr>
 
-    <footer>
+    <footer className="integrantes">
         Olivia Fodrini - Delfina Delgui - Valentina Douce  
     </footer>
     
@@ -22,7 +23,6 @@ function Footer() {
     </p>
 
 </footer>
-
 
 );
 }
