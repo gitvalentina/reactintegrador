@@ -3,10 +3,9 @@ import React from 'react';
 function NotFound(){
 
     return(
-        <React.Fragment>
-            <h2>404</h2>
-            <p>Acá no está lo que buscás.</p>
-        </React.Fragment>
+        <div>
+            <h1> 404 Error/ NOT FOUND </h1>
+        </div>
     )
 }
 

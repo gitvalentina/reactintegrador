@@ -1,4 +1,31 @@
-.logo{
+header .logo {
+    border-radius: 50%;
     width: 10%;
-    align-items: left;
+    border: 3px solid black;
 }
+/*HEADER*/
+
+a {
+    text-decoration: none;
+    color: white;
+    height: 10%;
+}
+.navegador {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: space-around;
+    height: 50px;
+    margin: 0;
+}
+
+.comp-nav{
+    list-style: none;
+    color: white;
+    align-items: center;
+    margin: 1%;
+}
+
+

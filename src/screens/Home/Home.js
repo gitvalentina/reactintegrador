@@ -46,6 +46,7 @@ class Home extends Component {
 
         return (
             <React.Fragment>
+<<<<<<< HEAD
                 <main>
                     <form onSubmit={(event) => this.evitarSubmit(event)}>
                         <input type="text" onChange={(event) => this.controlarCambios(event)} value={this.state.valor} />
@@ -70,6 +71,9 @@ class Home extends Component {
                         </React.Fragment>
                     }
                 </main>
+=======
+                  <Movies />
+>>>>>>> 0abd608d0ca8ba8d7ab56530a0eb80949029a48d
             </React.Fragment>
         )
     }

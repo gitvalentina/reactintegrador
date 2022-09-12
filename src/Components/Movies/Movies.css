@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    
+}
+.titulos {
+    color: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.pelis-populares, .series-populares{
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    width: 100%;
+    font-size: 20px;
+    justify-content: space-around;
+    text-align: center;
+}
+section{
+    height: 100%;
+    width: 100%;
+}
