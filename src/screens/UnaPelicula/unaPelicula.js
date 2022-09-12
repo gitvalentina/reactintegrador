@@ -3,7 +3,7 @@ import React from 'react';
 //Todo
 //1) Transformar el componente en un componente con estado.
 //2) Recuperar el id de la ruta.
-//3) Pedir datos al endpoint de la api de Rick & Morty con el id recuperado y mostrar los datos en pantalla.
+//3) Pedir datos al endpoint de la api de Rick &  con el id recuperado y mostrar los datos en pantalla.
 
 function UnaPelicula(){
 
