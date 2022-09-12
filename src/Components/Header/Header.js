@@ -7,13 +7,16 @@ function Header(){
     return (
     <>
             <div className='header'>
+            <img src="img/logo.jpg" alt="Logo StreamTime" className="logo" />
                 <ul className="navegador">
-                    <li className='lg'><img src="img/logo.jpg" alt="Logo StreamTime" className="logo" /></li>
                     <li className="comp-nav">
                         <Link to='/'> Home </Link>
                     </li>
                     <li className="comp-nav">
                         <Link to='/favoritos'> Favoritos </Link>
+                    </li>
+                    <li className="comp-nav">
+                        <Link to='/login'> Login </Link>
                     </li>
                 </ul>
             </div>

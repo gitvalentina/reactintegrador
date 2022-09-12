@@ -1,26 +1,28 @@
 .logo {
     border-radius: 50%;
-    width: 10%;
+    width: 100px;
+    height: 50px;
     border: 3px solid black;
     padding-top: 5px;
     
 }
-/*HEADER*/
+/*HEADER*/ 
 
 a {
     text-decoration: none;
     color: white;
     height: 10%;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+
+}
 .navegador {
     background-color: black;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    justify-content: end;
-    height: 50px;
-    margin: 0;
+    gap: 20px;
+    padding-right: 40px;
 }
 
 .comp-nav{
@@ -29,9 +31,6 @@ a {
     align-items: center;
     margin: 1%;
     height: min-content;
-}
-.lg{
-    width: 30%;
 }
 
 
