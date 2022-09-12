@@ -14,7 +14,6 @@ function App () {
     return (
       <React.Fragment>
       <Header />
-      <h1>My App in React</h1>
       <main>       
         <Switch>
           <Route path='/' exact={true} component={Home}/>
