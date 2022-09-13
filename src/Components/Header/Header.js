@@ -7,7 +7,7 @@ function Header(){
     return (
     <>
             <div className='header'>
-            <img src="img/logo.jpg" alt="Logo StreamTime" className="logo" />
+            <img src="/img/logo.jpg" alt="Logo StreamTime" className="logo" />
                 <ul className="navegador">
                     <li className="comp-nav">
                         <Link to='/'> Home </Link>

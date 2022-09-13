@@ -7,7 +7,7 @@ import React, { Component } from 'react';
 
 const apiKey= '184353d8f8f15b5e8908b2560e49a9f3';
 
-class UnaPelicula extends Component(){
+class UnaPelicula extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -90,6 +90,11 @@ class UnaPelicula extends Component(){
                 <h2>Datos de la pelicula  ......</h2>
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi earum totam praesentium ipsam ratione eligendi, repellat aliquid asperiores ea dolor ab, reiciendis nisi dignissimos nihil vero? Blanditiis inventore ab nesciunt.</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos non sed vero aliquid illo illum velit voluptates repellat eum accusantium rem dolorem, consectetur officiis atque aliquam? Iste ad consectetur iusto!</p>
+                { this.state.existe ? 
+                    <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                :
+                    <button onClick={ agregarfavorito }>Agregar a favoritos</button>
+                }
             </React.Fragment>
         )
 
