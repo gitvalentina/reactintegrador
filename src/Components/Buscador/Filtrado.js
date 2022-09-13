@@ -1,17 +1,20 @@
 import React, { Component } from "react";
+import './Filtrado.css';
 
 class Buscador extends Component{ //capturar valores
     constructor(props){
         super(props)
         this.state={
-            valorInput:''
+            valorInput:'',
+            resultados: []
         }
     }
 
 
 prevenirRefresh(event){
-    event.preventDefault()
+    event.prevenirRefresh()
 }
+
 controlarCambiosDelInput(event){
     this.setState({
         valorInput: event.target.value
@@ -21,8 +24,9 @@ controlarCambiosDelInput(event){
 render(){
     return(
         <form onSubmit={(event)=> this.prevenirRefresh(event)}>
-            <input onChange={(event)=> this.controlarCambiosDelInput(event)} value={this.state.valorInput} /> para que se sincronize con la info que estamos actualizando
-            <button> Hola </button>
+            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
+            <input type="submit" value="Submit" />
+            <button onClick={()=>this.reset()}>reset</button>
         </form>
     )
 }
