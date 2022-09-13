@@ -39,15 +39,52 @@ class UnaPelicula extends Component(){
                        })
                     }
                 }
-            }
+            }       
     }
 
     render(){
 
+        const agregarfavorito = () => {
+
+            const datos = localStorage.getItem('favoritos');
+
+            if(datos == null) {  //si es la 1ra vez que se guarda
+                    localStorage.setItem('favoritos', JSON.stringify([ this.state.pelicula]));
+            }
+            else{
+                const favoritos = JSON.parse(datos);
+                favoritos.push(this.state.pelicula)
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+            }
+
+            this.setState({
+                id: this.state.id,
+                pelicula: this.state.pelicula,
+                existe: true
+            })
+        }
+
+        const eliminarFavorito = () => {
+            const datos = localStorage.getItem('favoritos');
+            const favoritos = JSON.parse(datos);
+
+            for(let i = 0; i < favoritos.length; i++){
+                if(favoritos[i].id == this.state.id){
+
+                    this.setState({
+                        id: this.state.id,
+                        pelicula: this.state.pelicula,
+                        existe: false
+                    })
+
+                    favoritos.splice(i, 1)
+                    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                }
+            }
+        }
 
 
-
-
+    
         return (
             <React.Fragment>
                 <h2>Datos de la pelicula  ......</h2>

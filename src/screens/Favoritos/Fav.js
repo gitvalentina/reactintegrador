@@ -2,28 +2,28 @@ import React, { Component } from 'react';
 import Movies from '../../Components/Movies/Movies'
 import Tarjetas from '../../Components/Tarjetas/Tarjeta'
 import Buscador from '../../Components/Buscador/Filtrado'
-import Tarjeta from '../../Components/Tarjetas/Tarjeta';
+import Tarjeta from '../../Components/Tarjetas/Tarjeta'
 
-const apiKey= '184353d8f8f15b5e8908b2560e49a9f3';
+
+const apiKey = '184353d8f8f15b5e8908b2560e49a9f3';
 
 class Fav extends Component {
     constructor(){
         super()
         this.state = {
-            resultadosDeBusqueda: [], //el valor que el usuario pone en el input
+            resultadosDeBusqueda: [],  //valor que el usuario pone en el pinput
             valor: '',
             favoritos: []
         }
     }
 
-    reset(){
+    reset (){
         this.setState({
             resultadosDeBusqueda: []
         })
     }
 
     componentDidMount(){
-
         const datos = localStorage.getItem('favoritos');
 
         if(datos != null){
@@ -36,9 +36,8 @@ class Fav extends Component {
         }
     }
 
-    buscar(texto){
-        //buscador desde el endpoint
-        fetch('https://api.themoviedb.org/3/search/multi?api_key=' + apiKey +'&query=' + this.state.texto )
+    buscar(texto){ //buscador desde el endpoint
+        fetch('https://api.themoviedb.org/3/search/multi?api_key=' + apiKey + '&query=' + this.state.texto)
         .then( res => res.json())
         .then( data => this.setState({
             resultadosDeBusqueda : data.results
@@ -47,14 +46,15 @@ class Fav extends Component {
     }
 
 
-    render() {
+    render(){
         return (
             <React.Fragment>
                 <main>
-                    <section className='series-populares'>
+                    <section className='seies-populares'>
                         {
                             this.state.favoritos.map((favorito, idx) => <Tarjeta key={favorito + idx} data={favorito.overview} image={favorito.poster_path} title={favorito.title} id={favorito.id} agregar={(id) => this.agregarFavoritos(id)}/>)
                         }
+
                     </section>
                 </main>
             </React.Fragment>
