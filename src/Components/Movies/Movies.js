@@ -49,10 +49,10 @@ class Movies extends Component{
     }
 
     render(){ //donde vamos a imprimir la información obtenida de la API.
-         return(
+        return(
         <React.Fragment> 
             {this.state.cargando? 
-             <ClipLoader color="blue" loading={true} size={80} />: 
+            <ClipLoader color="blue" loading={true} size={80} />: 
             <>
                 <h2 className="titulos">Peliculas en Cartelera</h2> 
                 <Link to ={`/todas`}><button className="botton" onClick={()=>this.traerMas()} > Ver Todas las Peliculas de Cartelera </button></Link>
@@ -67,7 +67,7 @@ class Movies extends Component{
             </>
             }
         </React.Fragment>
-  
+
         )
     }
 }

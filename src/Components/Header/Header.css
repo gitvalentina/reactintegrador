@@ -1,24 +1,28 @@
-header .logo {
+.logo {
     border-radius: 50%;
-    width: 10%;
+    width: 100px;
+    height: 100px;
     border: 3px solid black;
+    padding-top: 5px;
+    
 }
-/*HEADER*/
+/*HEADER*/ 
 
 a {
     text-decoration: none;
     color: white;
     height: 10%;
 }
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .navegador {
     background-color: black;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding: 0;
-    justify-content: end;
-    height: 50px;
-    margin: 0;
+    gap: 20px;
+    padding-right: 40px;
 }
 
 .comp-nav{
