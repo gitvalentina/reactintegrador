@@ -29,14 +29,14 @@ class UnaPelicula extends Component {
 
             if(datos != null) { 
                 const favoritos = JSON.parse(datos);
-              
+            
                 for(let i = 0; i < favoritos.length; i++) {
                     if(favoritos[i].id == this.state.id) {
-                       this.setState({
+                    this.setState({
                             id: this.state.id,
                             pelicula: this.state.pelicula,
                             existe: true
-                       })
+                    })
                     }
                 }
             }       
