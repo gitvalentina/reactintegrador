@@ -3,7 +3,7 @@ import "./Footer.css"
 
 //por ahora es sin estado, seguro despues hay que cambiarlo
 function Footer() {
-    return ( <footer className='piedep'> <hr class="uk-divider-icon">
+    return ( <footer className='piedep'> <hr className="uk-divider-icon">
     </hr>
 
     <footer className="integrantes">

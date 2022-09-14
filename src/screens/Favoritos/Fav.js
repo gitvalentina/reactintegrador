@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
+import Tarjeta from '../../Components/Tarjetas/Tarjeta';
 
-import Tarjeta from '../../Components/Tarjetas/Tarjeta'
-
-
-const apiKey = '184353d8f8f15b5e8908b2560e49a9f3';
 
 class Fav extends Component {
     constructor(){
@@ -35,7 +32,7 @@ class Fav extends Component {
     }
 
     buscar(texto){ //buscador desde el endpoint
-        fetch('https://api.themoviedb.org/3/search/multi?api_key=' + apiKey + '&query=' + this.state.texto)
+        fetch('https://api.themoviedb.org/3/search/multi?api_key=184353d8f8f15b5e8908b2560e49a9f3&query=' + this.state.texto)
         .then( res => res.json())
         .then( data => this.setState({
             resultadosDeBusqueda : data.results

@@ -15,9 +15,14 @@ class Movies extends Component{
             cargando: true,
         } 
     }
+    buscarData(valor){
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=184353d8f8f15b5e8908b2560e49a9f3`)
+        .then(resp=>resp.json)
+        .then(data=>console.log(data))
+        .catch(err=>console.log(err))
+    }
 
-
-    componentDidMount(){ // para hacer las llamadas a la api con fetch, de populares
+    componentDidMount() { 
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=184353d8f8f15b5e8908b2560e49a9f3&language=en-US&page=${this.state.pagina}`) 
             .then( response => response.json()) //arrow para parsear la rta a json
             .then( data  => { //fetch de peliculas en cartelera 
@@ -30,8 +35,8 @@ class Movies extends Component{
                 pagina: this.state.pagina + 1,
                 peliculasActuales: info.results.slice(0,6)
             })})
-            })
-            .catch( error => console.log(error)); // en caso de tener algun problema con la api
+        })
+        .catch( error => console.log(error)); // en caso de tener algun problema con la api
     }
 
     render(){ //donde vamos a imprimir la información obtenida de la API.

@@ -19,7 +19,7 @@ class Tarjeta extends Component {
             let favoritosToArray = JSON.parse(recuperoStorage)
             favoritos = favoritosToArray
         }
-        if(favoritos.includes(this.props.datosPelicula.id)){
+        if(favoritos.includes(this.props.data.id)){
             this.setState({
                 mensaje: 'Quitar de Favoritos'
             })  
@@ -45,11 +45,11 @@ class Tarjeta extends Component {
             //mientras sea distinto la comparacion osea true voy a guardar en el nuevo array 
             //cuando el id sea igual al que entro en el parametro va a sacar el id del array
             favoritos = favoritos.filter(elId => elId !== id)
-            //en el caso de que de falso, mostramos al usuario un nuevo texto (quitar de favs)
+            
             this.setState({
                 mensajito: 'Agregar a Favoritos'
             })
-        }else{
+        }else{ //en el caso de que de falso, mostramos al usuario un nuevo texto (quitar de favs)
             favoritos.push(id)
             this.setState({
                 mensajito:'Quitar de Favoritos'
@@ -77,7 +77,6 @@ class Tarjeta extends Component {
         return (
         <React.Fragment> 
             <article >
-                
                 <a href={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></a>
                 <h2>{this.props.title}</h2>  
                 <div className={this.state.verMas}>
