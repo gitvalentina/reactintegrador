@@ -12,7 +12,7 @@ class Buscador extends Component{ //capturar valores
 
 
 prevenirRefresh(event){
-    event.prevenirRefresh()
+    event.prevenirDefault();
 }
 
 controlarCambiosDelInput(event){
@@ -24,7 +24,7 @@ controlarCambiosDelInput(event){
 render(){
     return(
         <form onSubmit={(event)=> this.prevenirRefresh(event)}>
-            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
+            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
             <input type="submit" value="Submit" />
             <button onClick={()=>this.reset()}>reset</button>
         </form>
