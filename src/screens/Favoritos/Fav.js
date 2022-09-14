@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import Movies from '../../Components/Movies/Movies'
-import Tarjetas from '../../Components/Tarjetas/Tarjeta'
-import Buscador from '../../Components/Buscador/Filtrado'
+
 import Tarjeta from '../../Components/Tarjetas/Tarjeta'
 
 
@@ -49,6 +47,7 @@ class Fav extends Component {
     render(){
         return (
             <React.Fragment>
+                
                 <main>
                     <section className='seies-populares'>
                         {
