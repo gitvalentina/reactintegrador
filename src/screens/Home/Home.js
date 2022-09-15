@@ -26,10 +26,17 @@ class Home extends Component {
             }
     }
 
+    metodoQueResetea(){
+        this.setState({
+            resultadosDeBusqueda: [], //valor que el usuario pone en input
+            value: ''
+        })
+    }
+
     render() {
         return (
             <React.Fragment>
-                <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} ></Buscador>
+                <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} metodoQueResetea={() => this.metodoQueResetea()}></Buscador>
                 <main>
                     {this.state.resultadosDeBusqueda.length > 0 ?  
                         <section className="opciones">
@@ -38,7 +45,7 @@ class Home extends Component {
                                     this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjetas key={UnaPelicula + idx} id={UnaPelicula.id}  data={UnaPelicula.overview}  image={UnaPelicula.poster_path} title={UnaPelicula.title} agregar = {(id) => this.agregarFavoritos(id)}/>)
                                 }
                             </div>
-                        </section> : <Movies></Movies>
+                        </section> : <Movies paginar={true} populares={true} cartelera={true}></Movies>
                     }
                 </main>
             </React.Fragment>

@@ -6,13 +6,12 @@ class Buscador extends Component{ //capturar valores
         super(props)
         this.state={
             valorInput:'',
-            resultados: []
         }
     }
 
 
 prevenirRefresh(event){
-    event.prevenirDefault();
+    event.preventDefault();
 }
 
 controlarCambiosDelInput(event){
@@ -21,16 +20,14 @@ controlarCambiosDelInput(event){
     }, ()=> this.props.metodoQueBusca(this.state.valorInput))
 }
 reset(){
-    this.setState({
-        resultados:[],
-    })
+    this.props.metodoQueResetea();
+    this.setState({valorInput: ''})
 }
 
 render(){
     return(
         <form onSubmit={(event)=> this.prevenirRefresh(event)}>
-            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
-            <input type="submit" value="Submit" />
+            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}
             <button onClick={()=>this.reset()}>reset</button>
         </form>
     )
