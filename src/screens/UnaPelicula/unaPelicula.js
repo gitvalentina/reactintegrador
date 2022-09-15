@@ -12,9 +12,9 @@ class UnaPelicula extends Component {
         super(props)
         this.state = {
             id: props.match.params.id,
-            pelicula: {},
+            pelicula: null,
             existe: false,
-            genres: []
+    
         }
     }
 
@@ -44,7 +44,9 @@ class UnaPelicula extends Component {
     }
 
     render(){
-
+        if(this.state.pelicula ==null){
+          return <></>
+        }
         const agregarfavorito = () => {
 
             const datos = localStorage.getItem('favoritos');
@@ -84,19 +86,19 @@ class UnaPelicula extends Component {
             }
         }
 
-
+        console.log(this.state.pelicula.genres);
     
         return (
             <React.Fragment>
                 
                 <h2>{this.state.pelicula.title}</h2>
-                <img src={``} />
+                <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.backdrop_path}`} />
                 <p>Rating: {this.state.pelicula.popularity}</p>
                 <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
                 <p>Duracion: {this.state.pelicula.runtime} mins</p>
                 <p>Sinopsis: {this.state.pelicula.overview}</p>
                 <p>Genero: {
-                    this.state.genres.map((genero, idx) => <li key={genero.id + idx}>{genero.name}</li>)
+                   this.state.pelicula.genres
                            }
                 </p>
                 { this.state.existe ? 
