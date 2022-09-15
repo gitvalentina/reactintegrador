@@ -13,7 +13,8 @@ class UnaPelicula extends Component {
         this.state = {
             id: props.match.params.id,
             pelicula: {},
-            existe: false
+            existe: false,
+            genres: []
         }
     }
 
@@ -87,9 +88,17 @@ class UnaPelicula extends Component {
     
         return (
             <React.Fragment>
-                <h2>Datos de la pelicula  ......</h2>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi earum totam praesentium ipsam ratione eligendi, repellat aliquid asperiores ea dolor ab, reiciendis nisi dignissimos nihil vero? Blanditiis inventore ab nesciunt.</p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eos non sed vero aliquid illo illum velit voluptates repellat eum accusantium rem dolorem, consectetur officiis atque aliquam? Iste ad consectetur iusto!</p>
+                
+                <h2>{this.state.pelicula.title}</h2>
+                <img src={``} />
+                <p>Rating: {this.state.pelicula.popularity}</p>
+                <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
+                <p>Duracion: {this.state.pelicula.runtime} mins</p>
+                <p>Sinopsis: {this.state.pelicula.overview}</p>
+                <p>Genero: {
+                    this.state.genres.map((genero, idx) => <li key={genero.id + idx}>{genero.name}</li>)
+                           }
+                </p>
                 { this.state.existe ? 
                     <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
                 :
