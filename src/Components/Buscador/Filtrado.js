@@ -20,6 +20,11 @@ controlarCambiosDelInput(event){
         valorInput: event.target.value
     }, ()=> this.props.metodoQueBusca(this.state.valorInput))
 }
+reset(){
+    this.setState({
+        resultados:[],
+    })
+}
 
 render(){
     return(
