@@ -40,7 +40,7 @@ class Home extends Component {
                 <main>
                     {this.state.resultadosDeBusqueda.length > 0 ?  
                         <section className="opciones">
-                            <div>
+                            <div className='pelis-populares'>
                                 {
                                     this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjetas key={UnaPelicula + idx} id={UnaPelicula.id}  data={UnaPelicula.overview}  image={UnaPelicula.poster_path} title={UnaPelicula.title} agregar = {(id) => this.agregarFavoritos(id)}/>)
                                 }

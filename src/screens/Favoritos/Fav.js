@@ -46,7 +46,7 @@ class Fav extends Component {
             <React.Fragment>
                 
                 <main>
-                    <section className='seies-populares'>
+                    <section className='series-populares'>
                         {
                             this.state.favoritos.map((favorito, idx) => <Tarjeta key={favorito + idx} data={favorito.overview} image={favorito.poster_path} title={favorito.title} id={favorito.id} agregar={(id) => this.agregarFavoritos(id)}/>)
                         }
