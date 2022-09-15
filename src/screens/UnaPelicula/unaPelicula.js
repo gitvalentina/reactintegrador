@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import './UnaPelicula.css'
 //Todo
 //1) Transformar el componente en un componente con estado.
 //2) Recuperar el id de la ruta.
@@ -46,7 +46,7 @@ class UnaPelicula extends Component {
     render(){
         if(this.state.pelicula ==null){
           return <></>
-        }
+        } //como react quiere cargar la pelicula sin q existe, se rompe sin eso, haces validaciones para q no rompa. tarda= validacion
         const agregarfavorito = () => {
 
             const datos = localStorage.getItem('favoritos');
@@ -90,22 +90,24 @@ class UnaPelicula extends Component {
     
         return (
             <React.Fragment>
-                
-                <h2>{this.state.pelicula.title}</h2>
-                <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.backdrop_path}`} />
-                <p>Rating: {this.state.pelicula.popularity}</p>
-                <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
-                <p>Duracion: {this.state.pelicula.runtime} mins</p>
-                <p>Sinopsis: {this.state.pelicula.overview}</p>
-                <p>Genero: {
-                   this.state.pelicula.genres
-                           }
-                </p>
-                { this.state.existe ? 
-                    <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
-                :
-                    <button onClick={ agregarfavorito }>Agregar a favoritos</button>
-                }
+                <main id="contenedor">
+                    <div id="pelicula">
+                        <h3>{this.state.pelicula.title}</h3>
+                        <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.backdrop_path}`} />
+                        <p>Rating: {this.state.pelicula.popularity}</p>
+                        <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
+                        <p>Duracion: {this.state.pelicula.runtime} mins</p>
+                        <p>Sinopsis: {this.state.pelicula.overview}</p>
+                        <p>Genero: 
+                            { this.state.pelicula.genres.map(genre => <a key={genre.id}>{genre.name} </a>)  }
+                        </p>
+                        { this.state.existe ? 
+                            <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                        :
+                            <button onClick={ agregarfavorito }>Agregar a favoritos</button>
+                        }
+                    </div>
+                </main>
             </React.Fragment>
         )
 

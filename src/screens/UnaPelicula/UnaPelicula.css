@@ -1,0 +1,13 @@
+#contenedor{
+    display: flex;
+    justify-content: center;
+  }
+  
+  #pelicula{
+    width: 40%;
+    padding: 20px;
+  }
+  
+  #pelicula h3{
+    font-size: 40px;
+  }

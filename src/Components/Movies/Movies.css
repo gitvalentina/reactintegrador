@@ -19,6 +19,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-direction: wrap;
+    flex-wrap: wrap;
     width: 100%;
     font-size: 20px;
     justify-content: space-around;

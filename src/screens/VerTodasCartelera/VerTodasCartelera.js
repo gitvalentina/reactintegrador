@@ -1,14 +1,13 @@
 import React from 'react';
 import Movies from '../../Components/Movies/Movies';
 
-function VerTodas(){
+function VerTodasCartelera(){
 
     return(
         <React.Fragment>
-            <h2>peliculas</h2>
-            <Movies />
+            <Movies cartelera={true} populares={false} />
         </React.Fragment>
     )
 }
 
-export default VerTodas;
+export default VerTodasCartelera;

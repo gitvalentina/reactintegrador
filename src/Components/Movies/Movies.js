@@ -5,7 +5,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import {Link} from "react-router-dom"
 
 class Movies extends Component{
-    constructor(){ //inicializo el componente con estas propiedades
+    constructor(props){ //inicializo el componente con estas propiedades
         super() //para inicializar los props
         this.state={
             pagina: 1,
@@ -25,9 +25,9 @@ class Movies extends Component{
                 .then( info  => { 
                 this.setState( { //Configuramos el estado del componente para que pueda almacenar la información de la API luego de hacer el fetch.
                 cargando: false,
-                peliculasPopulares: data.results.slice(0,6),
+                peliculasPopulares: this.props.paginar ? data.results.slice(0,5) : data.results,
                 pagina: this.state.pagina + 1,
-                peliculasActuales: info.results.slice(0,6)
+                peliculasActuales: this.props.paginar ? info.results.slice(0,5) : data.results
             })})
         })
         .catch( error => console.log(error)); // en caso de tener algun problema con la api
@@ -40,16 +40,30 @@ class Movies extends Component{
             {this.state.cargando? 
             <ClipLoader color="blue" loading={true} size={80} />: 
             <>
-                <h2 className="titulos">Peliculas en Cartelera</h2> 
-                <Link to ={`/todas`}><button className="botton" onClick={()=>this.traerMas()} > Ver Todas las Peliculas de Cartelera </button></Link>
-                <section className="series-populares">
-                    {this.state.peliculasActuales.map((value, idx) => <Tarjeta key={value + idx} data={value.overview}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)}/>)}
-                </section>
-                <h2 className="titulos">Peliculas populares</h2>
-                <Link to ={`/todas`}><button className="botton" onClick={()=>this.traerMas()} > Ver Todas las Peliculas Populares </button></Link>
-                <section className="pelis-populares">
-                    {this.state.peliculasPopulares.map((value, idx) => <Tarjeta key={value + idx} data={value}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)} />)}
-                </section>
+                 {
+                    this.props.cartelera ?
+                    <>
+                        <h2 className="titulos">Peliculas en Cartelera</h2> 
+                        <section className="series-populares">
+                            {this.state.peliculasActuales.map((value, idx) => <Tarjeta key={value + idx} data={value.overview}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)}/>)}
+                        </section>
+                        {this.props.populares && <Link to ={`/cartelera`}>Ver Todas las Peliculas de Cartelera</Link>}
+                    </>
+                    : ''
+                }
+
+                {
+                    this.props.populares ?
+                    <>
+                        <h2 className="titulos">Peliculas populares</h2>
+                        <section className="pelis-populares">
+                            {this.state.peliculasPopulares.map((value, idx) => <Tarjeta key={value + idx} data={value}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)} />)}
+                        </section>
+                        {this.props.cartelera && <Link to ={`/populares`}>Ver Todas las Peliculas Populares</Link>}
+                    </>
+                    : ''
+                }
+
             </>
             }
         </React.Fragment>

@@ -11,30 +11,29 @@ class Buscador extends Component{ //capturar valores
     }
 
 
-prevenirRefresh(event){
-    event.prevenirDefault();
-}
+    prevenirRefresh(event){
+        event.prevenirDefault();
+    }
 
-controlarCambiosDelInput(event){
-    this.setState({
-        valorInput: event.target.value
-    }, ()=> this.props.metodoQueBusca(this.state.valorInput))
-}
-reset(){
-    this.setState({
-        resultados:[],
-    })
-}
+    controlarCambiosDelInput(event){
+        this.setState({
+            valorInput: event.target.value
+        }, ()=> this.props.metodoQueBusca(this.state.valorInput))
+    }
+    reset(){
+        this.props.metodoQueResetea();
+        this.setState({valorInput: ''})
+        }
+    
 
-render(){
-    return(
-        <form onSubmit={(event)=> this.prevenirRefresh(event)}>
-            {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
-            <input type="submit" value="Submit" />
-            <button onClick={()=>this.reset()}>reset</button>
-        </form>
-    )
-}
+    render(){
+        return(
+            <form onSubmit={(event)=> this.prevenirRefresh(event)}>
+                {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}  
+                <button onClick={()=>this.reset()}>reset</button>
+            </form>
+        )
+    }
 }
 
 export default Buscador;
