@@ -26,9 +26,9 @@ class Home extends Component {
             }
     }
 
-    metodoQueResetea() {
+    metodoQueResetea(){
         this.setState({
-            resultadosDeBusqueda: [], //valor que el usuario pone en el input
+            resultadosDeBusqueda: [], //valor que el usuario pone en input
             value: ''
         })
     }
@@ -36,7 +36,7 @@ class Home extends Component {
     render() {
         return (
             <React.Fragment>
-                <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} metodoQueResetea={() => this.metodoQueResetea()} ></Buscador>
+                <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} metodoQueResetea={() => this.metodoQueResetea()}></Buscador>
                 <main>
                     {this.state.resultadosDeBusqueda.length > 0 ?  
                         <section className="opciones">

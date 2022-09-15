@@ -8,7 +8,7 @@ class Tarjeta extends Component {
         this.state={
             txt:'ver descripcion',
             mensaje: 'Agregar a Favoritos',
-            verMas: 'hide',
+            ocultar: true
         } 
     }
     componentDidMount(){
@@ -63,31 +63,32 @@ class Tarjeta extends Component {
         console.log(localStorage);
     }
 
-    click() {
-        if (this.state.verMas === 'hide') {
-            this.setState({
-                verMas: 'show', txt: 'ocultar ver mas'
-            })
-        } else  (this.setState({
-            verMas: 'hide', txt:'ver mas'
-        }))
+    ocultar(){
+        this.setState({
+            txt: 'ver descripcion',
+            mensaje: 'Agregar a Favoritos',
+            ocultar: !this.state.ocultar
+        })
     }
+
     
     render() {
+        
+        console.log(this.props.data);
+
         return (
         <React.Fragment> 
             <article >
+                
                 <p onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</p>
                 <a href={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></a>
                 <h2>{this.props.title}</h2>  
-                <div className={this.state.verMas}>
-                    <p onClick={()=> this.click()} className='more'>{this.state.txt}</p>
-                    <p className={this.state.click} onClick={this.state.click}>{this.props.overview}</p>
-                </div>
+                <p>fecha estreno {this.props.data.release_date}</p>
+                <p onClick={()=> this.ocultar()} className='more'>ver mas</p>
+                <p>{this.props.data.overview}</p>
                 
-                
-            </article> 
-     
+            </article>
+    
         </React.Fragment>
         );
     }
