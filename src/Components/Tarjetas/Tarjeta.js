@@ -6,7 +6,7 @@ class Tarjeta extends Component {
     constructor(props){ //inicializo el componente con estas propiedades
         super(props) //para inicializar los props
         this.state={
-            value:'',
+            txt:'ver descripcion',
             mensaje: 'Agregar a Favoritos',
             verMas: 'hide',
         } 
@@ -66,10 +66,10 @@ class Tarjeta extends Component {
     click() {
         if (this.state.verMas === 'hide') {
             this.setState({
-                verMas: 'show'
+                verMas: 'show', txt: 'ocultar ver mas'
             })
         } else  (this.setState({
-            verMas: 'hide'
+            verMas: 'hide', txt:'ver mas'
         }))
     }
     
@@ -77,13 +77,15 @@ class Tarjeta extends Component {
         return (
         <React.Fragment> 
             <article >
+                <p onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</p>
                 <a href={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></a>
                 <h2>{this.props.title}</h2>  
                 <div className={this.state.verMas}>
-                    <h3>{this.props.overview}</h3>
+                    <p onClick={()=> this.click()} className='more'>{this.state.txt}</p>
+                    <p className={this.state.click} onClick={this.state.click}>{this.props.overview}</p>
                 </div>
-                <button className='more' onClick={()=>this.click()} >Ver más</button>
-                <p onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</p>
+                
+                
             </article> 
      
         </React.Fragment>

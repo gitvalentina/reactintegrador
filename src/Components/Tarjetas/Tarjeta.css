@@ -14,14 +14,17 @@ img{
 .more{
     background-color: none;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-
+}
+article:hover,
+.active{
+box-shadow: 0rem 0rem 10px 8px rgb(220, 221, 227);
 }
 h2{
     font-size: 20px;
     color: white;
     height: 20%;
 }
-h3{
+h3, p{
     color: white;
     font-size: 15px;
 }
