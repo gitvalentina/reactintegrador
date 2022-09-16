@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './Tarjeta.css';
 import '../Movies/Movies.css';
+import { Link } from 'react-router-dom';
 
 class Tarjeta extends Component {
     constructor(props){ //inicializo el componente con estas propiedades
         super(props) //para inicializar los props
         this.state={
-            txt:'ver descripcion',
-            mensaje: 'Agregar a Favoritos',
-            ocultar: true
+            txt:'Ver Mas',
+            mensajito: 'Agregar a Favoritos',
+            ocultar: "ocultar"
         } 
     }
     componentDidMount(){
@@ -21,7 +22,7 @@ class Tarjeta extends Component {
         }
         if(favoritos.includes(this.props.data.id)){
             this.setState({
-                mensaje: 'Quitar de Favoritos'
+                mensajito: 'Quitar de Favoritos'
             })  
         }
     }
@@ -64,11 +65,15 @@ class Tarjeta extends Component {
     }
 
     ocultar(){
-        this.setState({
-            txt: 'ver descripcion',
-            mensaje: 'Agregar a Favoritos',
-            ocultar: !this.state.ocultar
-        })
+        if(this.state.descripcion === 'ocultar'){
+            this.setState({
+                ocultar: 'mostrar', txt:'Ver menos'
+            })
+        }else{
+            this.setState({
+                ocultar: 'ocultar', txt: 'Ver Mas'
+            })
+        }
     }
 
     
@@ -79,14 +84,13 @@ class Tarjeta extends Component {
         return (
         <React.Fragment> 
             <article >
-                
-                <p onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</p>
-                <a href={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></a>
-                <h2>{this.props.title}</h2>  
-                <p>fecha estreno {this.props.data.release_date}</p>
-                <p onClick={()=> this.ocultar()} className='more'>ver mas</p>
-                <p>{this.props.data.overview}</p>
-                
+                <Link to={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></Link>
+                <h2>{this.props.title}</h2> 
+                <button onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</button> 
+                <div> 
+                    <button onClick={()=> this.ocultar()} className='more'>{this.state.txt}</button>
+                    <p className={this.state.ocultar} onClick={this.state.ocultar}>{this.props.data.overview}</p>
+                </div>
             </article>
     
         </React.Fragment>

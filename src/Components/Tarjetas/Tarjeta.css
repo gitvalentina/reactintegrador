@@ -31,9 +31,10 @@ h3, p{
 button{
     margin-top: 2%;
 }
-.show{
-    display: block;
+.ocultar{
+    display: none
 }
-.hide{
-    display: none;
+
+.mostrar{
+    display: block;
 }
