@@ -9,7 +9,8 @@ class Tarjeta extends Component {
         this.state={
             txt:'Ver Mas',
             mensajito: 'Agregar a Favoritos',
-            ocultar: "ocultar"
+            ocultar: "ocultar",
+            existe: false
         } 
     }
     componentDidMount(){
@@ -20,22 +21,32 @@ class Tarjeta extends Component {
             let favoritosToArray = JSON.parse(recuperoStorage)
             favoritos = favoritosToArray
         }
-        if(favoritos.includes(this.props.data.id)){
+        console.log(this.props)
+        let existe = favoritos.find(pelicula => pelicula.id == this.props.pelicula.id);
+        if(existe != undefined){
             this.setState({
-                mensajito: 'Quitar de Favoritos'
-            })  
+                existe: true,
+                txt:'Ver Mas',
+                mensajito: 'Agregar a Favoritos',
+                ocultar: "ocultar",
+                
+            })
         }
+
+
     }
     agregaryQuitarDeFavs(id){
+        return console.log(this.props.pelicula)
+
         //esta funcion tiene que agregar un id dentro de un array y guardarlo en localStorage, luego chequear si el id ya existe; si es asi, ofrecer al usuario la posibilidad de sacarlo de favs 
         let favoritos = [];
         let recuperoStorage= localStorage.getItem('favoritos')
         //preguntamos si tiene algo adentro ya de localStorage; si hay algo dentro del favoritos, que lo agregue y no lo quite
         if(localStorage.getItem('favoritos') !== null){
             //me trae lo que ya tengo
-        let favoritosToArray = JSON.parse(recuperoStorage)
-            //favoritos ahora pasa a ser lo que tengamos en el storage
-            favoritos = favoritosToArray
+            let favoritosToArray = JSON.parse(recuperoStorage)
+                //favoritos ahora pasa a ser lo que tengamos en el storage
+                favoritos = favoritosToArray
         }
         //preguntemos si el id ya esta en el array 
         //si esta en el array lo vamos a sacar
@@ -78,6 +89,48 @@ class Tarjeta extends Component {
 
     
     render() {
+
+        const agregarfavorito = () => {
+
+            const datos = localStorage.getItem('favoritos');
+
+            if(datos == null) {  //si es la 1ra vez que se guarda
+                    localStorage.setItem('favoritos', JSON.stringify([ this.state.pelicula]));
+            }
+            else{
+                const favoritos = JSON.parse(datos);
+                favoritos.push(this.state.pelicula)
+                localStorage.setItem('favoritos', JSON.stringify(favoritos));
+            }
+
+            this.setState({
+                existe: true,
+                txt:'Ver Mas',
+                mensajito: 'Agregar a Favoritos',
+                ocultar: "ocultar"
+            })
+        }
+
+        const eliminarFavorito = () => {
+            const datos = localStorage.getItem('favoritos');
+            const favoritos = JSON.parse(datos);
+
+            for(let i = 0; i < favoritos.length; i++){
+                if(favoritos[i].id == this.state.id){
+
+                    this.setState({
+                        existe: false,
+                        txt:'Ver Mas',
+                        mensajito: 'Agregar a Favoritos',
+                        ocultar: "ocultar",
+                        
+                    })
+
+                    favoritos.splice(i, 1)
+                    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+                }
+            }
+        }
         
         console.log(this.props.data);
 
@@ -86,7 +139,11 @@ class Tarjeta extends Component {
             <article >
                 <Link to={`/id/${this.props.id}`}><img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" /></Link>
                 <h2>{this.props.title}</h2> 
-                <button onClick={()=>this.agregaryQuitarDeFavs(this.props.id)}>{this.state.mensajito}</button> 
+                        { this.state.existe ? 
+                            <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                        :
+                            <button onClick={ agregarfavorito }>Agregar a favoritos</button>
+                        }
                 <div> 
                     <button onClick={()=> this.ocultar()} className='more'>{this.state.txt}</button>
                     <p className={this.state.ocultar} onClick={this.state.ocultar}>{this.props.data.overview}</p>

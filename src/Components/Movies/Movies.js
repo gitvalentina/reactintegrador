@@ -45,7 +45,7 @@ class Movies extends Component{
                     <>
                         <h2 className="titulos">Peliculas en Cartelera</h2> 
                         <section className="series-populares">
-                            {this.state.peliculasActuales.map((value, idx) => <Tarjeta key={value + idx} data={value.overview}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)}/>)}
+                            {this.state.peliculasActuales.map((value, idx) => <Tarjeta key={value + idx} pelicula={value} data={value.overview}  image={value.poster_path} title={value.title} id = {value.id} agregar = {(id) => this.agregarFavoritos(id)}/>)}
                         </section>
                         {this.props.populares && <Link to ={`/cartelera`}>Ver Todas las Peliculas de Cartelera</Link>}
                     </>
