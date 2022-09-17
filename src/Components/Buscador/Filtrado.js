@@ -30,8 +30,8 @@ render(){
             {<input type= "text" onChange={(event)=> this.controlarCambiosDelInput(event)} placeholder="Buscar Pelicula" value={this.state.valorInput} /> } {/*para que se sincronize con la info que estamos actualizando*/}
             <button onClick={()=>this.reset()}>reset</button>
         </form>
-    )
-}
+        )
+    }
 }
 
 export default Buscador;
