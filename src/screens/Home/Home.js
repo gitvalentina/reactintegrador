@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movies from '../../Components/Movies/Movies';
-import Tarjetas from '../../Components/Tarjetas/Tarjeta'
+import Tarjeta from '../../Components/Tarjetas/Tarjeta'
 import Buscador from '../../Components/Buscador/Filtrado.js'
 
 const apiKey= '184353d8f8f15b5e8908b2560e49a9f3';
@@ -20,7 +20,7 @@ class Home extends Component {
                 fetch(`https://api.themoviedb.org/3/search/movie?api_key=184353d8f8f15b5e8908b2560e49a9f3&language=en-US&page=1&query=${nombre}`)
                 .then(res => res.json())
                 .then(data => {
-                    this.setState({resultadosDeBusqueda: data.results}, () => console.log(data.results))
+                    this.setState({resultadosDeBusqueda: data.results})
                 })
                 .catch(e => console.log(e))
             }
@@ -38,14 +38,17 @@ class Home extends Component {
             <React.Fragment>
                 <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} metodoQueResetea={() => this.metodoQueResetea()}></Buscador>
                 <main>
-                    {this.state.resultadosDeBusqueda.length > 0 ?  
-                        <section className="opciones">
-                            <div className='pelis-populares'>
-                                {
-                                    this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjetas key={UnaPelicula + idx} id={UnaPelicula.id}  data={UnaPelicula.overview}  image={UnaPelicula.poster_path} title={UnaPelicula.title} agregar = {(id) => this.agregarFavoritos(id)}/>)
-                                }
-                            </div>
-                        </section> : <Movies paginar={true} populares={true} cartelera={true}></Movies>
+                    {this.state.resultadosDeBusqueda.length > 0 
+                        ?  
+                            <section className="opciones">
+                                <div className='pelis-populares'>
+                                    {
+                                        this.state.resultadosDeBusqueda.map((UnaPelicula, idx) => <Tarjeta key={UnaPelicula + idx} pelicula={UnaPelicula}/>)
+                                    }
+                                </div>
+                            </section> 
+                                : 
+                            <Movies paginar={true} populares={true} cartelera={true}></Movies>
                     }
                 </main>
             </React.Fragment>

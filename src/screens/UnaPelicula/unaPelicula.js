@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ClipLoader } from 'react-spinners';
 import './UnaPelicula.css'
 //Todo
 //1) Transformar el componente en un componente con estado.
@@ -14,6 +15,7 @@ class UnaPelicula extends Component {
             id: props.match.params.id,
             pelicula: null,
             existe: false,
+            cargando: true
     
         }
     }
@@ -21,7 +23,7 @@ class UnaPelicula extends Component {
     componentDidMount() {
         fetch(`https://api.themoviedb.org/3/movie/${ this.state.id }?api_key=${ apiKey }`)
             .then( res => res.json())
-            .then(pelicula => this.setState({id: this.state.id, pelicula: pelicula}))
+            .then(pelicula => this.setState({id: this.state.id, pelicula: pelicula, cargando: false}))
             .catch(err => console.log(err))
 
 
@@ -44,9 +46,10 @@ class UnaPelicula extends Component {
     }
 
     render(){
-        if(this.state.pelicula ==null){
-          return <></>
+        if(this.state.cargando){
+          return <ClipLoader color="blue" loading={true} size={80} />
         } //como react quiere cargar la pelicula sin q existe, se rompe sin eso, haces validaciones para q no rompa. tarda= validacion
+        
         const agregarfavorito = () => {
 
             const datos = localStorage.getItem('favoritos');
@@ -99,12 +102,12 @@ class UnaPelicula extends Component {
                         <p>Duracion: {this.state.pelicula.runtime} mins</p>
                         <p>Sinopsis: {this.state.pelicula.overview}</p>
                         <p>Genero: 
-                            { this.state.pelicula.genres.map(genre => <a key={genre.id}>{genre.name} </a>)  }
+                            { this.state.pelicula.genres.map(genre => <p key={genre.id}>{genre.name} </p>)  }
                         </p>
                         { this.state.existe ? 
-                            <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
-                        :
-                            <button onClick={ agregarfavorito }>Agregar a favoritos</button>
+                                <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                            :
+                                <button onClick={ agregarfavorito }>Agregar a favoritos</button>
                         }
                     </div>
                 </main>
