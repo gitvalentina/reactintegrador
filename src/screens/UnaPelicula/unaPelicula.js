@@ -47,7 +47,7 @@ class UnaPelicula extends Component {
 
     render(){
         if(this.state.cargando){
-          return <ClipLoader color="blue" loading={true} size={80} />
+        return <ClipLoader color="blue" loading={true} size={80} />
         } //como react quiere cargar la pelicula sin q existe, se rompe sin eso, haces validaciones para q no rompa. tarda= validacion
         
         const agregarfavorito = () => {
