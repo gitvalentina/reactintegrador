@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'; //objeto comp
 import Movies from '../../Components/Movies/Movies';
 import Tarjeta from '../../Components/Tarjetas/Tarjeta'
 import Buscador from '../../Components/Buscador/Filtrado.js'
 
-const apiKey= '184353d8f8f15b5e8908b2560e49a9f3';
 
 class Home extends Component {
     constructor() {
@@ -27,7 +26,7 @@ class Home extends Component {
     }
 
     metodoQueResetea(){
-        this.setState({
+        this.setState({ // permite actualizar la información del objeto state de un componente. Cuando se modifica, se vuelve a renderizar el componente (no carga la app de cero, sino que cambia ese estado en específico)
             resultadosDeBusqueda: [], //valor que el usuario pone en input
             value: ''
         })
@@ -38,8 +37,7 @@ class Home extends Component {
             <React.Fragment>
                 <Buscador metodoQueBusca={(nombre)=> this.metodoQueBusca(nombre)} metodoQueResetea={() => this.metodoQueResetea()}></Buscador>
                 <main>
-                    {this.state.resultadosDeBusqueda.length > 0 
-                        ?  
+                    {this.state.resultadosDeBusqueda.length > 0 ?  
                             <section className="opciones">
                                 <div className='pelis-populares'>
                                     {
@@ -48,7 +46,7 @@ class Home extends Component {
                                 </div>
                             </section> 
                                 : 
-                            <Movies paginar={true} populares={true} cartelera={true}></Movies>
+                    <Movies paginar={true} populares={true} cartelera={true}></Movies>
                     }
                 </main>
             </React.Fragment>
