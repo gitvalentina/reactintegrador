@@ -3,9 +3,9 @@ import './Tarjeta.css';
 import '../Movies/Movies.css';
 import { Link } from 'react-router-dom';
 
-class Tarjeta extends Component {
+class Tarjeta extends Component { 
     constructor(props){ //inicializo el componente con estas propiedades
-        super(props) //para inicializar los props
+        super(props) //para inicializar los props por ser componente hijo de Movies
         this.state={
             existe: false,
             verMas: false
@@ -85,15 +85,15 @@ class Tarjeta extends Component {
                 <h2>{this.props.pelicula.title}</h2> 
                         { this.props.botones ? 
                             this.state.existe ?
-                                <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                            <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
+                            : <button onClick={ agregarfavorito }>Agregar a favoritos</button>
                             :
-                                <button onClick={ agregarfavorito }>Agregar a favoritos</button>
-                            :
-                                <></>
+ <></>
                         }
                 <div> 
                     <button onClick={()=> this.ocultar()} className='more'>ver mas</button>
-                    {this.state.verMas ? <p>{this.props.pelicula.overview}</p> : <></> }
+                    {this.state.verMas ? <p>{this.props.pelicula.overview}</p> :<>  </> }
+                
                 </div>
             </article>
     

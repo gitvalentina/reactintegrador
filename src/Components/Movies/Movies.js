@@ -4,24 +4,23 @@ import './Movies.css'
 import ClipLoader from "react-spinners/ClipLoader";
 import {Link} from "react-router-dom"
 
-class Movies extends Component{
-    constructor(props){ //inicializo el componente con estas propiedades
-        super() //para inicializar los props
-        this.state={
+class Movies extends Component{// ya no es f.nativa de Js sino una clase; un obj literal
+    constructor(){ //primer metodo para inicializar el componente 
+        super() // refiere al constructor, a la implementacion de React
+        this.state={ //definimos el estado inicial con sus propiedades
             pagina: 1,
             peliculasPopulares:[],//aparecen las peliculas popu
             peliculasActuales: [], //aparecen las peliculas en cartelera
-            peliculasBorradas:[],
-            cargando: true, //cliploader
+            cargando: true,
         } 
     }
 
-    componentDidMount() { 
+    componentDidMount() { //Se ejecuta inmediatamente después de renderizado el componente (en el Real Dom);obligará a que el componente se vuelva a renderizar, ahora con la información recibida
         fetch(`https://api.themoviedb.org/3/movie/popular?api_key=184353d8f8f15b5e8908b2560e49a9f3&language=en-US&page=${this.state.pagina}`) 
-            .then( response => response.json()) //arrow para parsear la rta a json
+            .then( response => response.json()) //arrow para parsear la rta a json y poder usarla en java
             .then( data  => { //fetch de peliculas en cartelera 
                 fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=184353d8f8f15b5e8908b2560e49a9f3&language=en-US&page=${this.state.pagina}`)
-                .then( response => response.json()) //arrow para parsear la rta a json
+                .then( response => response.json()) 
                 .then( info  => { 
                 this.setState( { //Configuramos el estado del componente para que pueda almacenar la información de la API luego de hacer el fetch.
                 cargando: false,
@@ -37,8 +36,8 @@ class Movies extends Component{
     render(){ //donde vamos a imprimir la información obtenida de la API.
         return(
         <React.Fragment> 
-            {this.state.cargando? 
-            <ClipLoader color="blue" loading={true} size={80} />: 
+            {this.state.cargando? //if ternario condicion - valor true o false
+            <ClipLoader color="blue" loading={true} size={80} />: //escenario donde la información quizás todavía no fue recibida 
             <>
                  {
                     this.props.cartelera ?
@@ -71,4 +70,6 @@ class Movies extends Component{
         )
     }
 }
-export default Movies;
+export default Movies; //Deben ser exportados para poder importarlos en App
+//Se usa dentro de un método: this., para que tenga que ver con su contexto; recibe un objeto literal y dentro la prop que queremos cambiar.
+

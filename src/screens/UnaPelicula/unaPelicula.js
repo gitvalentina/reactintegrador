@@ -95,13 +95,13 @@ class UnaPelicula extends Component {
                 <main id="contenedor">
                     <div id="pelicula">
                         <h3>{this.state.pelicula.title}</h3>
-                        <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.backdrop_path}`} />
+                        <img src={`https://image.tmdb.org/t/p/w342/${this.state.pelicula.backdrop_path}`} alt='foto' />
                         <p>Rating: {this.state.pelicula.popularity}</p>
                         <p>Fecha de estreno: {this.state.pelicula.release_date}</p>
                         <p>Duracion: {this.state.pelicula.runtime} mins</p>
                         <p>Sinopsis: {this.state.pelicula.overview}</p>
                         <p>Genero: 
-                            { this.state.pelicula.genres.map((genre, idx) => <p key={genre + idx}>{genre.name} </p>)  }
+                            { this.state.pelicula.genres.map((genre, idx) => <p key={genre + idx} > {genre.name} </p>)  }
                         </p>
                         { this.state.existe ? 
                                 <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>
