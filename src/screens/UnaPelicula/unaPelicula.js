@@ -12,7 +12,7 @@ class UnaPelicula extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id: props.match.params.id,
+            id: props.match.params.id, //guardando
             pelicula: null,
             existe: false,
             cargando: true
@@ -21,9 +21,9 @@ class UnaPelicula extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/${ this.state.id }?api_key=${ apiKey }`)
+        fetch(`https://api.themoviedb.org/3/movie/${ this.state.id }?api_key=${ apiKey }`) //buscando pelicula x id
             .then( res => res.json())
-            .then(pelicula => this.setState({id: this.state.id, pelicula: pelicula, cargando: false}))
+            .then(pelicula => this.setState({id: this.state.id, pelicula: pelicula, cargando: false})) //guardo pelicula en state
             .catch(err => console.log(err))
 
 
@@ -48,8 +48,7 @@ class UnaPelicula extends Component {
     render(){
         if(this.state.cargando){
           return <ClipLoader color="blue" loading={true} size={80} />
-        } //como react quiere cargar la pelicula sin q existe, se rompe sin eso, haces validaciones para q no rompa. tarda= validacion
-        
+        }
         const agregarfavorito = () => {
 
             const datos = localStorage.getItem('favoritos');
@@ -102,7 +101,7 @@ class UnaPelicula extends Component {
                         <p>Duracion: {this.state.pelicula.runtime} mins</p>
                         <p>Sinopsis: {this.state.pelicula.overview}</p>
                         <p>Genero: 
-                            { this.state.pelicula.genres.map(genre => <p key={genre.id}>{genre.name} </p>)  }
+                            { this.state.pelicula.genres.map((genre, idx) => <p key={genre + idx}>{genre.name} </p>)  }
                         </p>
                         { this.state.existe ? 
                                 <button onClick={ eliminarFavorito }>Eliminar de favoritos</button>

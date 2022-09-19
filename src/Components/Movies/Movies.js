@@ -12,7 +12,7 @@ class Movies extends Component{
             peliculasPopulares:[],//aparecen las peliculas popu
             peliculasActuales: [], //aparecen las peliculas en cartelera
             peliculasBorradas:[],
-            cargando: true,
+            cargando: true, //cliploader
         } 
     }
 
@@ -25,9 +25,9 @@ class Movies extends Component{
                 .then( info  => { 
                 this.setState( { //Configuramos el estado del componente para que pueda almacenar la información de la API luego de hacer el fetch.
                 cargando: false,
-                peliculasPopulares: this.props.paginar ? data.results.slice(0,5) : data.results,
+                peliculasPopulares: this.props.paginar ? data.results.slice(0,5) : data.results, //mostrame 5 o todas
                 pagina: this.state.pagina + 1,
-                peliculasActuales: this.props.paginar ? info.results.slice(0,5) : data.results
+                peliculasActuales: this.props.paginar ? info.results.slice(0,5) : info.results
             })})
         })
         .catch( error => console.log(error)); // en caso de tener algun problema con la api
@@ -50,7 +50,7 @@ class Movies extends Component{
                         {this.props.populares && <Link to ={`/cartelera`}>Ver Todas las Peliculas de Cartelera</Link>}
                     </>
                     : ''
-                }
+                } {/* cartelera=true */}
 
                 {
                     this.props.populares ?
@@ -62,7 +62,7 @@ class Movies extends Component{
                         {this.props.cartelera && <Link to ={`/populares`}>Ver Todas las Peliculas Populares</Link>}
                     </>
                     : ''
-                }
+                } {/* populares=true */}
 
             </>
             }
